@@ -4,6 +4,7 @@ import { AuthService } from '../auth/auth.service';
 import { BehaviorSubject, of } from 'rxjs';
 import { take, map, tap, delay, switchMap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { PlaceLocation } from './location.model';
 /* 
    new Place('p1', 'Manhattan Mansion', 'In the heart of NYC', 'https://imgs.6sqft.com/wp-content/uploads/2014/06/21042533/Carnegie-Mansion-nyc.jpg', 149.99, new Date('2020-01-01'), new Date('2021-12-31'), 'abc'),
     new Place('p2', 'L\'Amour Toujours', 'A romantic place in Paris', 'https://i.insider.com/5ce6d365a7999b402d5c4c57?width=1100&format=jpeg&auto=webp', 199.99, new Date('2020-01-01'), new Date('2021-12-31'), 'abc'),
@@ -19,6 +20,7 @@ interface PlaceData {
   price: number;
   title: string;
   userId: string;
+  location: PlaceLocation;
 }
 
 @Injectable({
@@ -51,7 +53,8 @@ export class PlacesService {
               resData[key].price, 
               new Date(resData[key].availableFrom), 
               new Date(resData[key].availableTo),
-              resData[key].userId
+              resData[key].userId,
+              resData[key].location
             ));
         }
       }
@@ -72,13 +75,13 @@ export class PlacesService {
     )
     .pipe(
       map(placeData => {
-        return new Place(id, placeData.title, placeData.description, placeData.imageUrl, placeData.price, new Date(placeData.availableFrom), new Date(placeData.availableTo), placeData.userId);
+        return new Place(id, placeData.title, placeData.description, placeData.imageUrl, placeData.price, new Date(placeData.availableFrom), new Date(placeData.availableTo), placeData.userId, placeData.location);
       })
     );
     
   }
 
-  addPlace(title: string, description: string, price: number, dateFrom: Date, dateTo: Date) {
+  addPlace(title: string, description: string, price: number, dateFrom: Date, dateTo: Date, location: PlaceLocation) {
     // creating a new palce
     const newPlace = new Place(
     Math.random().toString(),
@@ -88,7 +91,8 @@ export class PlacesService {
     price, 
     dateFrom, 
     dateTo,
-    this.authService.userId
+    this.authService.userId,
+    location
     );
 
     let generatedId: string;
@@ -114,9 +118,7 @@ export class PlacesService {
     let updatedPlaces: Place[];
 
     return this.places.pipe(
-
       take(1), 
-      
       switchMap(places => {
         if (!places || places.length <= 0) {
           return this.fetchPlaces();
@@ -131,7 +133,7 @@ export class PlacesService {
         updatedPlaces = [...places];
 
         const oldPlace = updatedPlaces[updatedPlaceIndex];
-        updatedPlaces[updatedPlaceIndex] = new Place(oldPlace.id, title, description, oldPlace.imageUrl, oldPlace.price, oldPlace.availableFrom, oldPlace.availableTo, oldPlace.userId);
+        updatedPlaces[updatedPlaceIndex] = new Place(oldPlace.id, title, description, oldPlace.imageUrl, oldPlace.price, oldPlace.availableFrom, oldPlace.availableTo, oldPlace.userId, oldPlace.location);
         return this.http.put(
         `https://pairbnb-app.firebaseio.com/offered-places/${placeId}.json`,
         {...updatedPlaces[updatedPlaceIndex], id: null}
