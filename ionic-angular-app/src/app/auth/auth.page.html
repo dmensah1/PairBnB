@@ -23,7 +23,7 @@
 
             <ion-item>
               <ion-label position="floating">Password</ion-label>
-              <ion-input type="passsword" ngModel name="password" required minlength="5" #passwordCtrl="ngModel"></ion-input>
+              <ion-input type="passsword" ngModel name="password" required minlength="6" #passwordCtrl="ngModel"></ion-input>
             </ion-item>
 
             <ion-item *ngIf="!passwordCtrl.valid && passwordCtrl.touched" lines="none">
@@ -37,7 +37,7 @@
       <ion-row>
         <ion-col size-sm="6" offset-sm="3">
           <ion-button type="button" color="primary" fill="clear" expand="block" (click)="onSwitchAuthMode()">Switch to {{ isLogin ? 'Signup' : 'Login' }}</ion-button>
-          <ion-button type="submit" color="primary" (click)="onLogin()" expand="block" [disabled]="!f.valid">Login</ion-button>
+          <ion-button type="submit" color="primary" (click)="onLogin()" expand="block" [disabled]="!f.valid">{{ isLogin ? 'Login' : 'Signup' }}</ion-button>
         </ion-col>
       </ion-row>
 

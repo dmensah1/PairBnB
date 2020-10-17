@@ -4,6 +4,7 @@ import { PlacesService } from '../../places.service';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { PlaceLocation } from '../../location.model';
+import { switchMap } from 'rxjs/operators';
 
 // converts base64 string to a blob
 function base64toBlob(base64Data, contentType) {
@@ -71,6 +72,8 @@ export class NewOfferPage implements OnInit {
     this.form.patchValue({location: location});
   }
 
+
+  // converting image to type File in order to upload to db
   onImagePicked(imageData: string | File) {
     let imageFile;
     if (typeof imageData === 'string') {
@@ -98,16 +101,20 @@ export class NewOfferPage implements OnInit {
     })
     .then(loadingEl => {
       loadingEl.present();
-      this.placesService
-      .addPlace(
-        this.form.value.title, 
-        this.form.value.description, 
-        +this.form.value.price, 
-        new Date(this.form.value.dateFrom), 
-        new Date(this.form.value.dateTo),
-        this.form.value.location
-        )
-        .subscribe(() => {
+      this.placesService.uploadImage(this.form.get('image').value).pipe(switchMap(uploadResponse => {
+        return this.placesService
+        .addPlace(
+          this.form.value.title, 
+          this.form.value.description, 
+          +this.form.value.price, 
+          new Date(this.form.value.dateFrom), 
+          new Date(this.form.value.dateTo),
+          this.form.value.location,
+          uploadResponse.imageUrl
+          )
+        })
+      )
+      .subscribe(() => {
           loadingEl.dismiss();
           this.form.reset();
           this.router.navigate(['/places/tabs/offers']);
