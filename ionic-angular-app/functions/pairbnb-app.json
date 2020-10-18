@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "pairbnb-app",
+  "private_key_id": "c3bee0d6926514ed717ad3f195a2e610a20531a1",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCo9txIiz7M2U+K\ncOVWP6AUVbDM3fe8NxlDiowZRw0ep/SML87fIo4LAGOljtsVZifpUUV2K48dbDkQ\nCwfkykQrTpkIfSquotFlVvLLBpJZTqK9NKhZkHsOktRj8KFkD2AlX3AR262DOFl4\n/u6LHoFWfLfrzr7sCKZX9IcRz5wUzY/455kE0c3It+6ApqLlJZWcavyTvy+6gK32\nOommufpgwdzMheWG/WiIXAbGqF5MO/9QwnOM/LhQ8JjOv8QFa9M5loUpukzTEHRg\naICTneeeQ9Vu1yhVYszuvCUM8wtfPELFEX/WnXoXKT3QB/B3jxpc9FNT0z2xhUuN\ny7aoho/xAgMBAAECggEAGhOjUrTe19mwC3M6CdIfABRriWq2eb9dME3ZKmuLTFBq\njxovyMM5/dutBVejW02dWkZ3PHIjj8xskBvLt5U56R8jwiojJLmvLH87UHcurgbT\nWfUfCFeijlC948C2/8zZr1rn3nGzeT2AnYpmwWTPXEw6THPnhmEdXxS3pdmPQqxo\nR/JyXn+PjY0MnDFdOiLViARz1lU+zEy3/feHmKHmg2YAMAstcRF7DFLE+boUMAum\ndh4TkUF+5WdUEAb+u8G6004JsdQyJUOLe/Vm1E7TauD8QCC97q30jSVYnOStrOHB\n1n6IAWAPL3hDCsMLjr9tonBgohMqeR7diZozObNQmQKBgQDtn7Lyi9Oi2tloIJCG\nhuV5mpoZeE+ILi9iemS2zeHvoddK7s6nRC8KP2XApPDmeTajklmja0dpJ+CITGZB\nFdUKi2phW7o9mADR89uGFOyT7UsX6+DX8h8/MCvn7Zmxk2rj5aYlWdDvbiAvtv5P\nR+ZN+ps3du17rL4ee4mxzdxdtQKBgQC2B+QROEOHbCbh94FaJn2SK+hAi5ImIsyF\n2CdVYVrD9U67k38+qOJVySZug6P0wJYoaG4Cc90RVIPCHU9UhfUzlvqlUgIitTqE\nLaHnGhskpakSumeDKXiMIncjHDQEOIod6GHpq25v0W6JN/ok9NBCjFZfnpbAOh+U\noPngaPUuzQKBgQCdwibV7IsnVdB81xHcnnZ/U2r3ee6jZLZE1SlETE+x/mqm7wD3\n/8aTMR/m1BqziMoDssgcPL7+S2FAXCiPEWWNSJ3p4TI2blItEY8u53lhhGsUiJ+P\n/slL9DlSE2a0hEC06ORza7vRGfX4d69DB2MZZkXifuyP7VGTf0UdbKTe+QKBgQCe\nQsAMJKG5lNM9dSXWTk6wjlIQBAjd9TViTOrttYXnh1ibhwKDZOvbb9ZlETi0K9ih\nayHyKfATCCrB0x/MuebUorhqkaFfsbcdglsYBT+CHjGgIcarZ5vyImj4cqXa4Zlb\npVWzhiOvPiPfU3a9OMf0g/T4j3Y7zIz2ePqnHDnHJQKBgDfuKKGHuDkddoA4Y8YM\niieqmZK5GEBq4qTZvP6PGyaSB/8Ho/o63JAokHTXhVGXOvB8dZfu4dkv+bCq+5L0\nx30njpNDaYTnTkw8Jg2sCwwB/Srrdj72/t6DoUmb41Qd+ZDudCOOYn66/yMFVi5U\nsxOgzcgxFL+hyayG+YaMNTBy\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-ot33c@pairbnb-app.iam.gserviceaccount.com",
+  "client_id": "101103928008092379096",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-ot33c%40pairbnb-app.iam.gserviceaccount.com"
+}
